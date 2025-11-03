@@ -1,4 +1,4 @@
-package opgave01.model;
+package opgave04;
 
 import java.util.*;
 
@@ -10,18 +10,17 @@ public class Swimmer {
     private String club;
     private int yearGroup;
     private ArrayList<Double> lapTimes;
-    private TrainingPlan trainingPlan;
-    
+
     /**
      * Initialize a new swimmer with name, club, yearGroup, and lap times.
-     */ 
+     */
 
-   public Swimmer(String name, int yearGroup, ArrayList<Double> lapTimes, String club) {
-       this.name = name;
-       this.yearGroup = yearGroup;
-       this.lapTimes = lapTimes;
-       this.club = club;
-   }
+    public Swimmer(String name, int yearGroup, ArrayList<Double> lapTimes, String club) {
+        this.name = name;
+        this.yearGroup = yearGroup;
+        this.lapTimes = lapTimes;
+        this.club = club;
+    }
     /**
      * Return the name of the swimmer
      */
@@ -50,34 +49,17 @@ public class Swimmer {
     public void setClub(String club) {
         this.club = club;
     }
-    
+
     /**
      * Return the fastest lap time
      */
     public double bestLapTime() {
         double best = Double.MAX_VALUE;
         for (double time: lapTimes) {
-        	if(best > time) {
-        		best = time;
-        	}
+            if(best > time) {
+                best = time;
+            }
         }
         return best;
-    }
-
-    public int allTraingHours(){
-        if (trainingPlan!=null){
-            return trainingPlan.getWeeklyWaterHours()+trainingPlan.getWeeklyStrengthHours();
-        }
-        return 0;
-    }
-
-    public void setTrainingPlan(TrainingPlan trainingPlan) {
-       if (this.trainingPlan!=trainingPlan){
-           this.trainingPlan=trainingPlan;
-       }
-    }
-
-    public TrainingPlan getTrainingPlan() {
-        return trainingPlan;
     }
 }
